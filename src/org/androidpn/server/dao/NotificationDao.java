@@ -10,4 +10,6 @@ public interface NotificationDao {
 	List<Notification> findNotifications(String username);
 	
 	void deleteNotification(Notification notification);
+	
+	void deleteNotificationByUUID(String uuid);
 }

@@ -15,6 +15,16 @@ public class Notification {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@Column(name = "uuid", nullable = false,length = 64)
+	private String uuid;
+	
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
+	}
+	
 	@Column(name = "api_key",length = 64)
 	private String apiKey;
 	

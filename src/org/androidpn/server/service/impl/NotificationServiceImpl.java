@@ -33,4 +33,9 @@ public class NotificationServiceImpl implements NotificationService {
 		notificationDao.deleteNotification(notification);
 	}
 
+	public void deleteNotificationByUUID(String uuid) {
+		// TODO Auto-generated method stub
+		notificationDao.deleteNotificationByUUID(uuid);
+	}
+
 }

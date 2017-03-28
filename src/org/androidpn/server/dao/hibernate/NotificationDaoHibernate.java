@@ -24,9 +24,30 @@ public class NotificationDaoHibernate extends HibernateDaoSupport implements Not
 	}
 
 	@SuppressWarnings("unchecked")
+	public List<Notification> findNotificationByUUID(String uuid) {
+		// TODO Auto-generated method stub
+		System.out.println(uuid);
+		List<Notification> list = getHibernateTemplate().find("from Notification where uuid = ?",uuid);
+		return list;
+	}
+	
+	@SuppressWarnings("unchecked")
 	public void deleteNotification(Notification notification) {
 		// TODO Auto-generated method stub
 		getHibernateTemplate().delete(notification);
+	}
+
+	public void deleteNotificationByUUID(String uuid) {
+		// TODO Auto-generated method stub
+		List<Notification> list = findNotificationByUUID(uuid);
+		if(list!=null&&list.size()>0){
+			try {
+				getHibernateTemplate().delete(list.get(0));
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
